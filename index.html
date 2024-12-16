@@ -7,43 +7,104 @@
 
     <meta charset="UTF-8"> <!-- 指定字符集 支持中文 -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 优化移动端显示 -->
-    <title id="title"> 朱骏一个人网站</title> <!-- 定义网站标题， id支持多语言 -->
+    <title id="webtitle"> 朱骏一简历网站</title> <!-- 定义网站标题， id支持多语言 -->
 
     <style> /* 样式区域 */
 
         /* 全局样式 */
         body {
+            display: grid;
+            padding-top: 180px; /* 与 header 的实际高度一致 */
             font-family: Arial, sans-serif; /* 字体 */
             margin: 0; /* 清除浏览器默认的外边距 */
-            padding: 0; /* 清除浏览器默认的内边距 */
+            min-height: 100vh; /* 最小高度为视口高度 */
             text-align: center; /* 将文本和内容在页面上水平居中 */
-            background-color: #cfcfcf; 
+            background-color: #ffffff; 
 
         }
 
         /* 页眉样式 */
         header {
-            background-color: #1a0028; /* 页眉背景色 */
-            color: #ffffff; /* 页眉字体颜色 */
-            padding: 20px; /* 页眉内边距 */
+            display: flex; /* 使用 Flexbox 布局 */
+            justify-content: space-between; /* 左右分布 */
+            align-items: center; /* 垂直居中 */
+            padding: 10px 20px; /* 页眉内边距 */
+            background-color: #1a0028; /* 背景颜色 */
+            color: #ffffff; /* 字体颜色 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000; /* 确保在所有内容之上 */
         }
         header h1, header p {
             margin: 0; /* 移除标题和段落的外边距，避免默认的间隙 */
         }
-        nav {
-            display: flex;
-            justify-content: center;
+        [id] {
+            scroll-margin-top: 180px; /* 与 header 高度保持一致 */
+        }
+        /* 左侧文字部分 */
+        .header-title {
+            margin-left: 50px;
+            display: grid; /* 水平排列子元素 */
+            align-items: center; /* 垂直居中对齐 */
+            grid-row-gap: 0px; /* 设置左右间距 */
+            grid-column-gap: 50px; /* 设置左右间距 */
+            /* font-weight: bold; */
+        }
+        
+        /* 标题 */
+        #header-name {
+            grid-column: 1; /* 第一列 */
+            grid-row: 1; /* 第一行 */
+            font-size: 50px; /* 标题字体大小 */
+            margin: 0; /* 去掉默认外边距 */
+        }
+
+        /* 语言切换按钮 */
+        .language-switch {
+            grid-column: 2; /* 第二列 */
+            grid-row: 2; /* 第一行 */
+            display: flex; /* 按钮水平排列 */
+            gap: 20px; /* 按钮之间的间距 */
+            margin: 0; /* 去掉默认外边距 */
+
+        }
+
+        /* 简介 */
+        #headerintro {
+            grid-column: 1; /* 跨两列 */
+            grid-row: 2; /* 第二行 */
+            font-size: 20px; /* 简介字体大小 */
+            margin: 0; /* 去掉默认外边距 */
+        }
+
+
+        /* 右侧导航栏 */
+        .header-nav {
+            margin-right: 50px;
+            display: flex; /* 使用 Flexbox 布局 */
             background-color: #00263d;
+            gap: 0px; /* 链接之间的间距 */
+            justify-content: center;
+
         }
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            padding: 10px 20px;
+
+        /* 导航链接样式 */
+        .header-nav a {
+            color: #ffffff; /* 链接字体颜色 */
+            text-decoration: none; /* 去掉下划线 */
+            font-size: 18px; /* 链接字体大小 */
+            padding: 20px 50px; /* 链接的内边距 */
             display: block;
+            border-radius: 5px; /* 链接圆角 */
         }
-        nav a:hover {
-            background-color: #000000;
+
+        /* 鼠标悬停时的效果 */
+        .header-nav a:hover {
+            background-color: #4a0048; /* 悬停时背景颜色 */
         }
+
         .main-content img {
             width: 200px;
             cursor: pointer;
@@ -62,14 +123,34 @@
         .content.active {
             display: block;
         }
-        video {
-            width: 100%;
-            max-width: 600px;
-            display: block;
-            margin: 20px auto;
+        .video-grid {
+            display: grid; /* 使用 CSS Grid 布局 */
+            grid-template-columns: repeat(2, 1fr); /* 每行两列 */
+            grid-row-gap: 50px; /* 设置上下间距 */
+            grid-column-gap: 50px; /* 设置左右间距 */
+            padding: 0px; /* 网格的内边距 */
+            justify-items: center; /* 每个视频水平居中 */
         }
-        .language-switch {
-            margin-top: 10px;
+
+        iframe {
+            width: 600px; /* 让视频宽度适应网格列的大小 */
+            aspect-ratio: 16/9; /* 确保视频比例为 16:9 */
+            border: none; /* 去掉视频边框 */
+        }
+
+        /* 页脚 -------------------------------------------------------*/
+        
+        footer {
+            background-color: #000f2b;
+            color: #ffffff;
+            text-align: center;
+            padding: 50px 0;
+            margin-top: 50px;
+        }
+
+        footer a {
+            color: #ff4081;
+            text-decoration: none;
         }
 
     </style>
@@ -78,46 +159,145 @@
 
 <body>
 
+
 <header>
-    <h1 id="header-title">朱骏一个人简历</h1>
-    <p id="header-desc">软件开发工程师 | 游戏行业爱好者</p>
-    <div class="language-switch">
-        <button onclick="switchLanguage('zh')">中文</button>
-        <button onclick="switchLanguage('en')">English</button>
+    <!-- 左侧标题 -->
+    <div class="header-title">
+        <h1 id="header-name"> 朱骏一</h1>
+        <p id="headerintro">游戏开发者 | 玩家</p>
+    
+        <div class="language-switch">
+            <button onclick="switchLanguage('zh')">中文</button>
+            <button onclick="switchLanguage('en')">English</button>
+        </div>
+
     </div>
+
+    <!-- 右侧导航栏 -->
+    <nav class="header-nav">
+            <a id="home" href="#homesec" onclick="showSection('homesec')">首页</a>
+            <a id="home" href="#t" onclick="showSection('homesec')">首页</a>
+            <a id="project" href="#projects-title" onclick="showSection('projects-section')">项目展示</a>
+            <a id="blognav" href="#contact" onclick="showSection('blog')">日志</a>
+            <a id="contactnav" href="#footer-contact">联系方式</a>
+    </nav>
 </header>
 
-<nav>
-    <a href="#intro" onclick="showSection('intro')">个人简介</a>
-    <a href="#projects" onclick="showSection('projects-section')">项目展示</a>
-    <a href="#contact" onclick="showSection('contact')">联系方式</a>
-</nav>
 
-<div id="intro" class="main-content">
+<div id="homesec" class="main-content">
     <h2 id="intro-title">个人简介</h2>
     <p id="intro-desc">你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。</p>
     <p id="tt">点击图片跳转到项目展示部分：</p>
-    <img src="test.png" alt="跳转到项目展示" onclick="showProjects()">
+    <img src="test.png" alt="跳转到项目展示" onclick="showSection('projects-section')">
+    <p id="t1">你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊/
+    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊<br>
+    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+
+    啊<br>    啊<br>啊<br>
+
+    <p id="t">点击图片跳转到项目展示部分：</p>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
+    啊<br>啊<br>啊<br>
 </div>
+
 
 <div id="projects-section" class="content">
     <h2 id="projects-title">项目展示</h2>
-    <video controls>
-        <source src="test.mp4" type="video/mp4">
-        您的浏览器不支持视频播放。
-    </video>
+
+
+    <!-- 使用 iframe 嵌入 Bilibili 视频 -->
+    <div class="video-grid">
+        <div>
+            <h3>视频标题 2</h3>
+            <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+            </iframe>
+        </div>
+
+
+        <div>
+            <h3>视频标题 2</h3>
+            <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+            </iframe>
+        </div>
+
+        <div>
+            <h3>视频标题 2</h3>
+            <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+            </iframe>
+        </div>
+
+
+        <div>
+            <h3>视频标题 2</h3>
+            <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+            </iframe>
+        </div>
+    </div>
+
+
     <p id="projects-desc">项目简介：这是我最近完成的一个关于游戏引擎优化的项目，主要用到了DirectX 12和C++。</p>
 </div>
 
-<div id="contact" class="content">
+<!-- 页脚 -->
+<footer id="footer-contact">
     <h2 id="contact-title">联系方式</h2>
-    <p id="contact-email">邮箱: zhangsan@example.com</p>
-    <p id="contact-phone">电话: +86 123 4567 8901</p>
-</div>
+    <p id="contact-email">邮箱: <a href="mailto:zhangsan@example.com">zhangsan@example.com</a></p>
+    <p id="contact-phone">电话: <a href="tel:+8612345678901">+86 123 4567 8901</a></p>
+</footer>
+
 
 
 
 <script>
+
     // 切换显示的部分
     function showSection(id) {
         const sections = document.querySelectorAll('.content, .main-content');
@@ -125,45 +305,43 @@
         document.getElementById(id).style.display = 'block';
     }
 
-    // 点击图片显示项目展示部分
-    function showProjects() {
-        // 隐藏主界面
-        const sections = document.querySelectorAll('.content, .main-content');
-        sections.forEach(section => section.style.display = 'none');
-
-        // 显示项目展示部分
-        const projectsSection = document.getElementById('projects-section');
-        projectsSection.style.display = 'block';
-    }
 
     
     // 多语言支持
     const translations = {
         zh: {
-            "title": "朱骏一个人网站",
-            "header-title": "朱骏一个人简历",
-            "header-desc": "软件开发工程师 | 游戏行业爱好者",
+            "webtitle": "朱骏一简历网站",
+            "header-name": "朱骏一",
+            "headerintro": "游戏开发者 | 玩家",
+            "home": "首页",
+            "project": "项目展示",
+            "blognav": "日志",
+            "contactnav": "联系方式",
             "intro-title": "个人简介",
             "intro-desc": "你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。",
             "projects-title": "项目展示",
             "projects-desc": "项目简介：这是我最近完成的一个关于游戏引擎优化的项目，主要用到了DirectX 12和C++。",
             "contact-title": "联系方式",
-            "contact-email": "邮箱: zhangsan@example.com",
-            "contact-phone": "电话: +86 123 4567 8901",
+            "contact-email": "邮箱: ",
+            "contact-phone": "电话: ",
             "tt": "点击图片跳转到项目展示部分："
 
         },
         en: {
-            "title": "Ambrose Zhu",
-            "header-title": "Ambrose's Resume",
-            "header-desc": "Software Developer | Game Industry Enthusiast",
+            "webtitle": "Ambrose Zhu CV Web",
+            "header-name": "Ambrose Zhu",
+            "headerintro": "Games Developer | Player",
+            "home": "HOME",
+            "project": "PROJECTS",
+            "blognav": "BLOG",
+            "contactnav": "CONTACT",
             "intro-title": "Introduction",
             "intro-desc": "Hello, I'm Zhang San, a software engineer passionate about game development and cutting-edge technology.",
             "projects-title": "Projects",
             "projects-desc": "Project Introduction: This is a recent project I completed on game engine optimization, mainly using DirectX 12 and C++.",
             "contact-title": "Contact Information",
-            "contact-email": "Email: zhangsan@example.com",
-            "contact-phone": "Phone: +86 123 4567 8901",
+            "contact-email": "Email：",
+            "contact-phone": "Phone：",
             "tt": "click for details:"
 
         }
@@ -179,6 +357,7 @@
             }
         });
     }
+
 </script>
 
 </body>
