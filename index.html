@@ -292,21 +292,29 @@
         #contact-email,#email,#contact-phone,#phone  {
             display: inline; /* 设置为行内显示 */
         }
-        @media (max-width: 1200px) {
-            .header-nav a {
-                padding: 10px 20px; /* 缩小导航栏按钮 */
-                font-size: 16px;
-            }
-            .text-image-container {
-                flex-direction: column; /* 图片和文字垂直排列 */
-                align-items: center;
+
+        /* 适应 */
+        @media (max-width: 1150px) {
+            .header-nav a,.header-nav a.zh,.header-nav a.en{
+                padding: 10px 40px; /* 缩小导航栏按钮 */
+                font-size: 18px;
             }
             .text-image-container img {
                 width: 250px; /* 缩小图片宽度 */
             }
+
+        }
+        @media (max-width: 1050px) {
+            .header-nav a,.header-nav a.zh,.header-nav a.en {
+                padding: 10px 30px; /* 缩小导航栏按钮 */
+                font-size: 16px;
+            }
+            .text-image-container img {
+                width: 200px; /* 缩小图片宽度 */
+            }
         }
 
-        @media (max-width: 768px) {
+        @media (max-width: 950px) {
             header {
                 flex-direction: column; /* 页眉垂直排列 */
                 align-items: center;
@@ -315,12 +323,18 @@
                 margin-left: 0;
                 text-align: center;
             }
+            [id] {
+                scroll-margin-top: 400px; /* 与 header 高度保持一致 */
+            }
+            body {
+                padding-top: 300px; /* 与 header 的实际高度一致 */
+            }
             .header-nav {
                 margin-right: 0;
                 flex-wrap: wrap; /* 导航栏自动换行 */
                 justify-content: center;
             }
-            .header-nav a {
+            .header-nav a,.header-nav a.zh,.header-nav a.en {
                 flex: 1 1 100%; /* 每个按钮占据一整行 */
                 text-align: center;
             }
@@ -333,9 +347,6 @@
         }
 
         @media (max-width: 480px) {
-            body {
-                padding-top: 100px; /* 调整顶部留白 */
-            }
             h2 {
                 font-size: 24px; /* 缩小标题字体 */
             }
