@@ -13,7 +13,8 @@
         html {
             scroll-behavior: smooth; /* 平滑滚动 */
         }
-        /* 全局样式 */
+
+        /* 全局 -------------------------------------------------------*/
         body {
             display: grid;
             padding-top: 150px; /* 与 header 的实际高度一致 */
@@ -25,7 +26,7 @@
 
         }
 
-        /* 页眉样式 */
+        /* 页眉 -------------------------------------------------------*/
         header {
             display: flex; /* 使用 Flexbox 布局 */
             justify-content: space-between; /* 左右分布 */
@@ -54,19 +55,18 @@
             grid-column-gap: 50px; /* 设置左右间距 */
             /* font-weight: bold; */
         }
-        
         /* 标题 */
         #header-name {
-            grid-column: 1; /* 第一列 */
-            grid-row: 1; /* 第一行 */
+            grid-column: 1; 
+            grid-row: 1; 
             font-size: 50px; /* 标题字体大小 */
             margin: 0; /* 去掉默认外边距 */
         }
 
         /* 语言切换按钮 */
         .language-switch {
-            grid-column: 2; /* 第二列 */
-            grid-row: 2; /* 第一行 */
+            grid-column: 2; 
+            grid-row: 2; 
             display: flex; /* 按钮水平排列 */
             gap: 20px; /* 按钮之间的间距 */
             margin: 0; /* 去掉默认外边距 */
@@ -75,12 +75,11 @@
 
         /* 简介 */
         #headerintro {
-            grid-column: 1; /* 跨两列 */
-            grid-row: 2; /* 第二行 */
+            grid-column: 1; 
+            grid-row: 2; 
             font-size: 20px; /* 简介字体大小 */
             margin: 0; /* 去掉默认外边距 */
         }
-
 
         /* 右侧导航栏 */
         .header-nav {
@@ -89,7 +88,7 @@
             background-color: #00263d;
             gap: 0px; /* 链接之间的间距 */
             justify-content: center;
-
+            
         }
 
         /* 导航链接样式 */
@@ -97,7 +96,7 @@
             color: #ffffff; /* 链接字体颜色 */
             text-decoration: none; /* 去掉下划线 */
             font-size: 18px; /* 链接字体大小 */
-            padding: 20px 50px; /* 链接的内边距 */
+            padding: 15px 25px; /* 链接的内边距 */
             display: block;
             border-radius: 5px; /* 链接圆角 */
         }
@@ -107,24 +106,33 @@
             background-color: #4a0048; /* 悬停时背景颜色 */
         }
 
+        /*  主体-------------------------------------------------------*/
+
+        /* 主页 */
+
+        /* 主页图片 */
         .main-content img {
             width: 200px;
             cursor: pointer;
-            border: 2px solid #333;
+            border: 2px solid #280026;
             border-radius: 10px;
             margin: 20px;
             transition: transform 0.3s ease;
         }
         .main-content img:hover {
-            transform: scale(1.1);
+            transform: scale(1.1); /* 悬停放大 */
         }
+
+        /* 内容页 */
         .content {
             padding: 20px;
-            display: none;
+            display: none; /* 默认隐藏 */
         }
         .content.active {
-            display: block;
+            display: block; /* 添加 `active` 类后，显示内容 */
         }
+
+        /* 视频网格 */
         .video-grid {
             display: grid; /* 使用 CSS Grid 布局 */
             grid-template-columns: repeat(2, 1fr); /* 每行两列 */
@@ -154,6 +162,9 @@
             color: #ff4081;
             text-decoration: none;
         }
+        #contact-email,#email,#contact-phone,#phone  {
+            display: inline; /* 设置为行内显示 */
+        }
 
     </style>
 
@@ -165,7 +176,7 @@
 <header>
     <!-- 左侧标题 -->
     <div class="header-title">
-        <h1 id="header-name"> 朱骏一</h1>
+        <h1 id="name"> 朱骏一</h1>
         <p id="headerintro">游戏开发者 | 玩家</p>
     
         <div class="language-switch">
@@ -178,64 +189,24 @@
     <!-- 右侧导航栏 -->
     <nav class="header-nav">
             <a id="home" href="#homesec" onclick="showSection('homesec')">首页</a>
-            <a id="home" href="#t" onclick="showSection('homesec')">首页</a>
-            <a id="project" href="#projects-title" onclick="showSection('projects-section')">项目展示</a>
-            <a id="blognav" href="#contact" onclick="showSection('blog')">日志</a>
+            <a id="experience" href="#workexp" onclick="showSection('homesec')">经历</a>
+            <a id="project" href="#projectssec" onclick="showSection('projectssec')">项目展示</a>
+            <a id="blognav" href="#blogsec" onclick="showSection('blogsec')">日志</a>
             <a id="contactnav" href="#footer-contact">联系方式</a>
     </nav>
 </header>
 
-
+<!-- 主页 -->
 <div id="homesec" class="main-content">
-    <h2 id="intro-title">个人简介</h2>
+    <h2 id="home-intro">个人简介</h2>
     <p id="intro-desc">你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。</p>
-    <p id="tt">点击图片跳转到项目展示部分：</p>
-    <img src="test.png" alt="跳转到项目展示" onclick="showSection('projects-section')">
-    <p id="t1">你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
-    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊/
-    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊<br>
-    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-    as啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
 
-    啊<br>    啊<br>啊<br>
+    <h2 id="workexp">工作经历</h2>
 
-    <p id="t">点击图片跳转到项目展示部分：</p>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
-    啊<br>啊<br>啊<br>
 </div>
 
-
-<div id="projects-section" class="content">
+<!-- 项目页 -->
+<div id="projectssec" class="content">
     <h2 id="projects-title">项目展示</h2>
 
 
@@ -288,14 +259,24 @@
     <p id="projects-desc">项目简介：这是我最近完成的一个关于游戏引擎优化的项目，主要用到了DirectX 12和C++。</p>
 </div>
 
+<!-- 日志页 -->
+<div id="blogsec" class="content">
+  
+</div>
+
+
 <!-- 页脚 -->
 <footer id="footer-contact">
+
     <h2 id="contact-title">联系方式</h2>
-    <p id="contact-email">邮箱: <a href="mailto:zhangsan@example.com">zhangsan@example.com</a></p>
-    <p id="contact-phone">电话: <a href="tel:+8612345678901">+86 123 4567 8901</a></p>
+
+    <p id="contact-email">邮箱: </p> 
+    <a id="email" href="mailto:Ambroseemmm@163.com"> Ambroseemmm@163.com</a>
+    <br>
+    <br>
+    <p id="contact-phone">电话: </p>
+    <a id="phone"  href="tel:+8613914776910">+86 13914776910</a>
 </footer>
-
-
 
 
 <script>
@@ -313,38 +294,32 @@
     const translations = {
         zh: {
             "webtitle": "朱骏一简历网站",
-            "header-name": "朱骏一",
+            "name": "朱骏一",
             "headerintro": "游戏开发者 | 玩家",
             "home": "首页",
+            "experience": "经历",
             "project": "项目展示",
             "blognav": "日志",
             "contactnav": "联系方式",
-            "intro-title": "个人简介",
-            "intro-desc": "你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。",
-            "projects-title": "项目展示",
-            "projects-desc": "项目简介：这是我最近完成的一个关于游戏引擎优化的项目，主要用到了DirectX 12和C++。",
+        
             "contact-title": "联系方式",
             "contact-email": "邮箱: ",
             "contact-phone": "电话: ",
-            "tt": "点击图片跳转到项目展示部分："
 
         },
         en: {
             "webtitle": "Ambrose Zhu CV Web",
-            "header-name": "Ambrose Zhu",
+            "name": "Ambrose Zhu",
             "headerintro": "Games Developer | Player",
             "home": "HOME",
+            "experience": "EXPERIENCES",
             "project": "PROJECTS",
             "blognav": "BLOG",
             "contactnav": "CONTACT",
-            "intro-title": "Introduction",
-            "intro-desc": "Hello, I'm Zhang San, a software engineer passionate about game development and cutting-edge technology.",
-            "projects-title": "Projects",
-            "projects-desc": "Project Introduction: This is a recent project I completed on game engine optimization, mainly using DirectX 12 and C++.",
-            "contact-title": "Contact Information",
+          
+            "contact-title": "Contact",
             "contact-email": "Email：",
             "contact-phone": "Phone：",
-            "tt": "click for details:"
 
         }
     };
