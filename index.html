@@ -147,7 +147,6 @@
             display: flex; /* 水平排列图片和文字 */
             align-items: center; /* 垂直居中 */
             gap: 20px; /* 设置图片与文字之间的间距 */
-            margin-left: 200px;
             margin-top: 20px;
         }
 
@@ -320,8 +319,16 @@
                 align-items: center;
             }
             .header-title {
+                display: flex; 
+                flex-direction: column; /* 页眉垂直排列 */
                 margin-left: 0;
                 text-align: center;
+                margin-bottom: 10px;
+                gap: 10px; 
+            }
+            .language-switch {
+                display: flex; /* 保持按钮水平排列 */
+                gap: 10px; /* 按钮之间的间距 */
             }
             [id] {
                 scroll-margin-top: 400px; /* 与 header 高度保持一致 */
@@ -337,6 +344,10 @@
             .header-nav a,.header-nav a.zh,.header-nav a.en {
                 flex: 1 1 100%; /* 每个按钮占据一整行 */
                 text-align: center;
+            }
+            .text-image-container {
+                flex-direction: column; /* 图片和文字垂直排列 */
+                align-items: center;
             }
             .project-grid {
                 grid-template-columns: 1fr; /* 每行一个项目 */
