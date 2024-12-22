@@ -292,7 +292,60 @@
         #contact-email,#email,#contact-phone,#phone  {
             display: inline; /* 设置为行内显示 */
         }
+        @media (max-width: 1200px) {
+            .header-nav a {
+                padding: 10px 20px; /* 缩小导航栏按钮 */
+                font-size: 16px;
+            }
+            .text-image-container {
+                flex-direction: column; /* 图片和文字垂直排列 */
+                align-items: center;
+            }
+            .text-image-container img {
+                width: 250px; /* 缩小图片宽度 */
+            }
+        }
 
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column; /* 页眉垂直排列 */
+                align-items: center;
+            }
+            .header-title {
+                margin-left: 0;
+                text-align: center;
+            }
+            .header-nav {
+                margin-right: 0;
+                flex-wrap: wrap; /* 导航栏自动换行 */
+                justify-content: center;
+            }
+            .header-nav a {
+                flex: 1 1 100%; /* 每个按钮占据一整行 */
+                text-align: center;
+            }
+            .project-grid {
+                grid-template-columns: 1fr; /* 每行一个项目 */
+            }
+            .modal-content {
+                width: 90%; /* 弹窗宽度调整为窗口的 90% */
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding-top: 100px; /* 调整顶部留白 */
+            }
+            h2 {
+                font-size: 24px; /* 缩小标题字体 */
+            }
+            .project-item img {
+                width: 100%;
+            }
+            footer {
+                padding: 30px 0;
+            }
+        }
     </style>
 
 </head>
