@@ -130,7 +130,7 @@
         /* 主页 */
 
         /* 主页图片 */
-        .main-content img {
+        /* .main-content img {
             width: 200px;
             cursor: pointer;
             border: 2px solid #280026;
@@ -139,9 +139,25 @@
             transition: transform 0.3s ease;
         }
         .main-content img:hover {
-            transform: scale(1.1); /* 悬停放大 */
+            transform: scale(1.1); 
+        } */
+
+        /* 文字图片同行 */
+        .text-image-container {
+            display: flex; /* 水平排列图片和文字 */
+            align-items: center; /* 垂直居中 */
+            gap: 20px; /* 设置图片与文字之间的间距 */
+            margin-left: 200px;
+            margin-top: 20px;
         }
 
+        .text-image-container img {
+            width: 300px; /* 设置图片宽度 */
+            height: auto; /* 保持图片比例 */
+            border: 2px solid #280026;
+            border-radius: 10px;
+            margin: 20px;
+        }
         /* 内容页 */
         .content {
             padding: 20px;
@@ -151,22 +167,114 @@
             display: block; /* 添加 `active` 类后，显示内容 */
         }
 
-        /* 视频网格 */
-        .video-grid {
-            display: grid; /* 使用 CSS Grid 布局 */
-            grid-template-columns: repeat(2, 1fr); /* 每行两列 */
-            grid-row-gap: 50px; /* 设置上下间距 */
-            grid-column-gap: 50px; /* 设置左右间距 */
-            padding: 0px; /* 网格的内边距 */
-            justify-items: center; /* 每个视频水平居中 */
+
+        /* 项目网格布局 */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
         }
 
-        iframe {
-            width: 600px; /* 让视频宽度适应网格列的大小 */
-            aspect-ratio: 16/9; /* 确保视频比例为 16:9 */
-            border: none; /* 去掉视频边框 */
+        .project-item img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        .project-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .project-grid p {
+            text-align: center;
+            margin-top: 10px;
+        }
+        .project-grid a {
+            color: #0073ff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .project-grid a:hover {
+            text-decoration: underline;
+        }
+
+        /* 弹窗样式 */
+        .modal {
+            display: none; /* 默认隐藏 */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* 半透明背景 */
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+            position: relative;
+        }
+
+        .modal-content iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+        }
+
+        /* 关闭按钮 */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+
+        .close:hover {
+            color: red;
+        }
+
+
+        /* 日志界面 */
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px; /* 设置网格间距 */
+            margin-top: 20px;
+        }
+
+        .blog-item {
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 15px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .blog-item:hover {
+            transform: scale(1.05); /* 鼠标悬停放大 */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影效果 */
+        }
+
+        .blog-item img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
         /* 页脚 -------------------------------------------------------*/
         
         footer {
@@ -208,7 +316,7 @@
     <!-- 右侧导航栏 -->
     <nav id="headernav" class="header-nav">
             <a id="home" href="#homesec" onclick="showSection('homesec')">首页</a>
-            <a id="experience" href="#workexp" onclick="showSection('homesec')">经历</a>
+            <a id="experience" href="#profexp" onclick="showSection('homesec')">经历</a>
             <a id="project" href="#projectssec" onclick="showSection('projectssec')">项目展示</a>
             <a id="blognav" href="#blogsec" onclick="showSection('blogsec')">日志</a>
             <a id="contactnav" href="#footer-contact">联系方式</a>
@@ -220,8 +328,10 @@
 
     <h2 id="intro">个人简介</h2>
 
-    <p id="intro-desc">你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。</p>
-
+    <div class="text-image-container">
+        <img src="test.png">
+        <p id="intro-desc">你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。</p>
+    </div>
 
     <h2 id="skills"> 技能</h2>
 
@@ -238,62 +348,85 @@
 </div>
 
 <!-- 项目页 -->
+
 <div id="projectssec" class="content">
     <h2 id="projects-title">项目展示</h2>
-
-
-    <!-- 使用 iframe 嵌入 Bilibili 视频 -->
-    <div class="video-grid">
-        <div>
-            <h3>视频标题 2</h3>
-            <iframe 
-            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true">
-            </iframe>
+    <div class="project-grid">
+        <!-- 项目 1 -->
+        <div class="project-item">
+            <h3>项目标题 1</h3>
+            <p id="projects-desc">项目简介：这是我最近完成的一个关于游戏引擎优化的项目，主要用到了DirectX 12和C++。</p>
+            <p><a href="#blogpost1" onclick="showSection('blogpost1')">查看相关日志</a></p>
+            <img src="test.png" onclick="openModal('modal1')">
         </div>
-
-
-        <div>
-            <h3>视频标题 2</h3>
-            <iframe 
-            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true">
-            </iframe>
-        </div>
-
-        <div>
-            <h3>视频标题 2</h3>
-            <iframe 
-            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true">
-            </iframe>
-        </div>
-
-
-        <div>
-            <h3>视频标题 2</h3>
-            <iframe 
-            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
-            scrolling="no" 
-            frameborder="0" 
-            allowfullscreen="true">
-            </iframe>
+        <!-- 项目 2 -->
+        <div class="project-item">
+            <h3>项目标题 2</h3>
+            <p><a href="#blogpost2" onclick="showSection('blogpost2')">查看相关日志</a></p>
+            <img src="test.png" onclick="openModal('modal2')">
         </div>
     </div>
 
 
-    <p id="projects-desc">项目简介：这是我最近完成的一个关于游戏引擎优化的项目，主要用到了DirectX 12和C++。</p>
 </div>
+
+<!-- 弹窗内容 -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal1')">&times;</span>
+        <h3>项目标题 1</h3>
+        <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+        </iframe>
+    </div>
+</div>
+
+<div id="modal2" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal2')">&times;</span>
+        <h3>项目标题 2</h3>
+        <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+        </iframe>
+    </div>
+</div>
+
+     
 
 <!-- 日志页 -->
 <div id="blogsec" class="content">
-  
+    <h2>日志</h2>
+    <div class="blog-grid">
+
+        <div class="blog-item" onclick="showSection('blogpost1')">
+            <img src="test.png">
+            <h3>日志标题 1</h3>
+            <p>这是日志 1 的简介内容，点击查看详情。</p>
+        </div>
+
+        <div class="blog-item" onclick="showSection('blogpost2')">
+            <img src="test.png">
+            <h3>日志标题 2</h3>
+            <p>这是日志 2 的简介内容，点击查看详情。</p>
+        </div>
+
+    </div>
+</div>
+
+<!-- 日志详情页 -->
+<div id="blogpost1" class="content">
+    <h2>日志标题 1</h2>
+    <p>这是日志 1 的详细内容。</p>
+</div>
+<div id="blogpost2" class="content">
+    <h2>日志标题 2</h2>
+    <p>这是日志 2 的详细内容。</p>
 </div>
 
 
@@ -374,6 +507,18 @@
         navLinks.forEach(link => {link.classList.remove("zh", "en");});
         navLinks.forEach(link => {link.classList.add(lang);});
 
+    }
+
+    // 打开弹窗
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'flex'; // 使用 flex 布局让弹窗居中
+    }
+
+    // 关闭弹窗
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        modal.style.display = 'none';
     }
 
 </script>
