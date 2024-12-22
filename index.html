@@ -25,6 +25,9 @@
             background-color: #ffffff; 
 
         }
+        h2{
+            font-size: 30px; /* 设置字体大小 */
+        }
 
         /* 页眉 -------------------------------------------------------*/
         header {
@@ -48,18 +51,18 @@
         }
         /* 左侧文字部分 */
         .header-title {
-            margin-left: 50px;
+            margin-left: 30px;
             display: grid; /* 水平排列子元素 */
             align-items: center; /* 垂直居中对齐 */
             grid-row-gap: 0px; /* 设置左右间距 */
-            grid-column-gap: 50px; /* 设置左右间距 */
+            grid-column-gap: 30px; /* 设置左右间距 */
             /* font-weight: bold; */
         }
         /* 标题 */
-        #header-name {
+        #name {
             grid-column: 1; 
             grid-row: 1; 
-            font-size: 50px; /* 标题字体大小 */
+            font-size: 45px; /* 标题字体大小 */
             margin: 0; /* 去掉默认外边距 */
         }
 
@@ -91,15 +94,31 @@
             
         }
 
+        .header-nav.zh {
+            margin-right: 50px; /* 中文模式下的 margin-right */
+        }
+
+        .header-nav.en {
+            margin-right: 40px; /* 英文模式下的 margin-right */
+        }
+
         /* 导航链接样式 */
         .header-nav a {
             color: #ffffff; /* 链接字体颜色 */
             text-decoration: none; /* 去掉下划线 */
             font-size: 18px; /* 链接字体大小 */
-            padding: 15px 25px; /* 链接的内边距 */
+            padding: 15px 50px; /* 链接的内边距 */
             display: block;
             border-radius: 5px; /* 链接圆角 */
         }
+        .header-nav a.zh {
+            padding: 15px 50px; /* 链接的内边距 */
+        }
+
+        .header-nav a.en {
+            padding: 15px 25px; /* 链接的内边距 */
+        }
+        
 
         /* 鼠标悬停时的效果 */
         .header-nav a:hover {
@@ -187,7 +206,7 @@
     </div>
 
     <!-- 右侧导航栏 -->
-    <nav class="header-nav">
+    <nav id="headernav" class="header-nav">
             <a id="home" href="#homesec" onclick="showSection('homesec')">首页</a>
             <a id="experience" href="#workexp" onclick="showSection('homesec')">经历</a>
             <a id="project" href="#projectssec" onclick="showSection('projectssec')">项目展示</a>
@@ -198,10 +217,23 @@
 
 <!-- 主页 -->
 <div id="homesec" class="main-content">
-    <h2 id="home-intro">个人简介</h2>
+
+    <h2 id="intro">个人简介</h2>
+
     <p id="intro-desc">你好，我是张三，一名专注于软件开发的工程师，热衷于探索游戏开发和最新技术。</p>
 
-    <h2 id="workexp">工作经历</h2>
+
+    <h2 id="skills"> 技能</h2>
+
+    <h2 id="edu"> 教育背景</h2>
+
+    <h2 id="profexp"> 专业经历</h2>
+
+    <h2 id="otherexp"> 其他经历</h2>
+
+    <h2 id="interest"> 爱好</h2>
+
+
 
 </div>
 
@@ -319,7 +351,7 @@
           
             "contact-title": "Contact",
             "contact-email": "Email：",
-            "contact-phone": "Phone：",
+            "contact-phone": "Mobile：",
 
         }
     };
@@ -333,6 +365,15 @@
                 el.textContent = translations[lang][key];
             }
         });
+
+        const navBar = document.getElementById("headernav");
+        navBar.classList.remove("zh", "en"); // 移除其他语言的类
+        navBar.classList.add(lang); // 添加当前语言的类
+
+        const navLinks = document.querySelectorAll(".header-nav a");
+        navLinks.forEach(link => {link.classList.remove("zh", "en");});
+        navLinks.forEach(link => {link.classList.add(lang);});
+
     }
 
 </script>
