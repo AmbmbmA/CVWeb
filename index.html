@@ -56,6 +56,7 @@
             align-items: center; /* 垂直居中对齐 */
             grid-row-gap: 0px; /* 设置左右间距 */
             grid-column-gap: 30px; /* 设置左右间距 */
+            /* font-weight: bold; */
         }
         /* 标题 */
         #name {
@@ -91,14 +92,6 @@
             gap: 0px; /* 链接之间的间距 */
             justify-content: center;
             
-        }
-
-        .header-nav.zh {
-            margin-right: 50px; /* 中文模式下的 margin-right */
-        }
-
-        .header-nav.en {
-            margin-right: 40px; /* 英文模式下的 margin-right */
         }
 
         /* 导航链接样式 */
@@ -279,19 +272,27 @@
         }
 
         /* 适应 -------------------------------------------------------*/
-        @media (max-width: 1150px) {
-            .header-nav a,.header-nav a.zh,.header-nav a.en{
+        @media (max-width: 1200px) {
+            .header-nav a,.header-nav a.zh{
                 padding: 10px 40px; /* 缩小导航栏按钮 */
-                font-size: 18px;
+                font-size: 16px;
+            }
+            .header-nav a.en{
+                padding: 10px 15px; /* 缩小导航栏按钮 */
+                font-size: 16px;
             }
             .text-image-container img {
                 width: 250px; /* 缩小图片宽度 */
             }
 
         }
-        @media (max-width: 1050px) {
-            .header-nav a,.header-nav a.zh,.header-nav a.en {
+        @media (max-width: 1100px) {
+            .header-nav a,.header-nav a.zh{
                 padding: 10px 30px; /* 缩小导航栏按钮 */
+                font-size: 16px;
+            }
+            .header-nav a.en{
+                padding: 10px 10px; /* 缩小导航栏按钮 */
                 font-size: 16px;
             }
             .text-image-container img {
@@ -299,17 +300,18 @@
             }
         }
 
-        @media (max-width: 950px) {
+        @media (max-width: 1000px) {
             header {
                 flex-direction: column; /* 页眉垂直排列 */
                 align-items: center;
-                margin:0px;
-                padding: 0px 0px; /* 页眉内边距 */
-
+                margin:0;
+                padding:0px 0px;
             }
             .header-title {
                 display: flex; 
                 flex-direction: column; /* 页眉垂直排列 */
+                margin-left: 0;
+                margin-right: 0;
                 text-align: center;
                 margin-bottom: 10px;
                 gap: 10px; 
@@ -324,12 +326,14 @@
             body {
                 padding-top: 400px; /* 与 header 的实际高度一致 */
             }
+
             .header-nav {
-                margin:0px;
+                width: 100%;
                 flex-wrap: wrap; /* 导航栏自动换行 */
                 justify-content: center;
+                margin: 0; /* 去掉多余外边距 */
             }
-            .header-nav a,.header-nav a.zh,.header-nav a.en {
+            .header-nav a {
                 flex: 1 1 100%; /* 每个按钮占据一整行 */
                 text-align: center;
             }
@@ -390,6 +394,7 @@
 <div id="homesec" class="main-content">
 
     <h2 id="intro">个人简介</h2>
+
     <div class="text-image-container">
 
         <img src="decoration1.jpg" style ="width:400px">
@@ -403,7 +408,6 @@
 
     </div>
 
-
     <h2 id="skills"> 技能</h2>
     <p id="skillscontent" style="margin-left:100px;margin-right:100px;text-align: left; line-height: 2;">
         你好！我是朱骏一，是一名充满热情的游戏开发者，也是一名涉猎极广的游戏玩家！
@@ -412,7 +416,7 @@
         <br>我非常希望能制作出令玩家印象深刻的游戏，我热衷于优化玩家体验，游戏设计和沉浸感。我想让更多人体验到我作为一名玩家时的快乐和感受！
     </p>
 
-
+    
     <h2 id="edu"> 教育背景</h2>
     <p id="educontent" style="margin-left:100px;margin-right:100px;text-align: left; line-height: 2;">
         你好！我是朱骏一，是一名充满热情的游戏开发者，也是一名涉猎极广的游戏玩家！
@@ -574,7 +578,7 @@
             "contactnav": "联系方式",
 
             "intro": "个人简介",
-            "introcontent": "你好！我是朱骏一，是一名充满热情的游戏开发者，也是一名涉猎极广的游戏玩家！<br>我拥有华威大学的数学统筹统计与经济(BSc)学士学位，本科阶段的学习为我的数学和统计学打下了坚实的基础。我现在是华威大学的硕士研究生，专业是游戏工程。<br>我拥有丰富的C++ 开发经验，并且具有使用DirectX11进行图形编程制作的能力。在不使用游戏引擎的情况下，我曾独立开发过2D和3D游戏。<br>我非常希望能制作出令玩家印象深刻的游戏，我热衷于优化玩家体验，游戏设计和沉浸感。我想让更多人体验到我作为一名玩家时的快乐和感受！",
+            "introcontent": "你好！我是朱骏一，是一名充满热情的游戏开发者，也是一名涉猎极广的游戏玩家！<br>我拥有华威大学的数学统筹统计与经济(BSc)学士学位，本科阶段的学习为我的数学和统计学打下了坚实的基础。现在我仍作为硕士研究生就读于华威大学，专业是游戏工程。<br>我拥有丰富的C++ 开发经验，并且具有使用DirectX11进行图形编程制作的能力。在不使用游戏引擎的情况下，我曾独立开发过2D和3D游戏。<br>我非常希望能制作出令玩家印象深刻的游戏，我热衷于优化玩家体验，游戏设计和沉浸感。我想让更多人体验到我作为一名玩家时的快乐和感受！",
             
             "skills": "技能",
             "edu": "教育背景",
@@ -626,13 +630,11 @@
             }
         });
 
-        const navBar = document.getElementById("headernav");
-        navBar.classList.remove("zh", "en"); // 移除其他语言的类
-        navBar.classList.add(lang); // 添加当前语言的类
-
         const navLinks = document.querySelectorAll(".header-nav a");
         navLinks.forEach(link => {link.classList.remove("zh", "en");});
         navLinks.forEach(link => {link.classList.add(lang);});
+        
+
 
     }
 
@@ -647,6 +649,18 @@
         const modal = document.getElementById(modalId);
         modal.style.display = 'none';
     }
+
+    function adjustHeaderMargin() {
+        const header = document.querySelector(".header-nav");
+        const screenWidth = window.innerWidth;
+
+        if (screenWidth < 1000) { // 小于768px时
+            header.style.margin = "0"; // 设置紧凑布局
+        } else{
+            header.style.marginRight = "50px";
+        }
+    }
+    window.addEventListener("resize", adjustHeaderMargin);
 
 </script>
 
