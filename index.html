@@ -117,6 +117,16 @@
             background-color: #4a0048; /* 悬停时背景颜色 */
         }
 
+        /* 折叠按钮样式 */
+        .menu-toggle {
+        display: none; /* 默认隐藏 */
+        font-size: 24px;
+        background: none;
+        border: none;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        }
+
         /*  主体-------------------------------------------------------*/
 
         /* 文字图片同行 */
@@ -307,6 +317,8 @@
                 margin:0;
                 padding:0px 0px;
             }
+
+
             .header-title {
                 display: flex; 
                 flex-direction: column; /* 页眉垂直排列 */
@@ -328,10 +340,18 @@
             }
 
             .header-nav {
+                display: none; /* 默认隐藏导航栏 */
                 width: 100%;
                 flex-wrap: wrap; /* 导航栏自动换行 */
                 justify-content: center;
                 margin: 0; /* 去掉多余外边距 */
+            }
+            .menu-toggle {
+                display: block; /* 小屏幕时显示折叠按钮 */
+            }
+
+            .header-nav.active {
+                display: flex; /* 点击按钮后显示导航栏 */
             }
             .header-nav a {
                 flex: 1 1 100%; /* 每个按钮占据一整行 */
@@ -379,6 +399,8 @@
         </div>
 
     </div>
+
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
 
     <!-- 右侧导航栏 -->
     <nav id="headernav" class="header-nav">
@@ -692,6 +714,11 @@
         
 
 
+    }
+
+    function toggleMenu() {
+        const nav = document.getElementById("headernav");
+        nav.classList.toggle("active"); // 切换 `active` 类名
     }
 
     // 打开弹窗
