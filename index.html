@@ -56,7 +56,6 @@
             align-items: center; /* 垂直居中对齐 */
             grid-row-gap: 0px; /* 设置左右间距 */
             grid-column-gap: 30px; /* 设置左右间距 */
-            /* font-weight: bold; */
         }
         /* 标题 */
         #name {
@@ -304,11 +303,13 @@
             header {
                 flex-direction: column; /* 页眉垂直排列 */
                 align-items: center;
+                margin:0px;
+                padding: 0px 0px; /* 页眉内边距 */
+
             }
             .header-title {
                 display: flex; 
                 flex-direction: column; /* 页眉垂直排列 */
-                margin-left: 0;
                 text-align: center;
                 margin-bottom: 10px;
                 gap: 10px; 
@@ -324,7 +325,7 @@
                 padding-top: 400px; /* 与 header 的实际高度一致 */
             }
             .header-nav {
-                margin-right: 0;
+                margin:0px;
                 flex-wrap: wrap; /* 导航栏自动换行 */
                 justify-content: center;
             }
@@ -390,7 +391,7 @@
 
     <h2 id="intro">个人简介</h2>
     <div class="text-image-container">
-        
+
         <img src="decoration1.jpg" style ="width:400px">
 
         <p id="introcontent" style="text-align: left; line-height: 2;">
