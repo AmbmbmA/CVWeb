@@ -149,7 +149,7 @@
         /* 项目网格布局 */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 20px;
             padding: 20px;
         }
@@ -230,7 +230,7 @@
 
         .blog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
             gap: 20px; /* 设置网格间距 */
             margin-top: 20px;
         }
@@ -475,6 +475,18 @@
             <p><a href="#blogpost2" onclick="showSection('blogpost2')">查看相关日志</a></p>
             <img src="test.png" onclick="openModal('modal2')">
         </div>
+        <!-- 项目 3 -->
+        <div class="project-item">
+            <h3>项目标题 3</h3>
+            <p><a href="#blogpost3" onclick="showSection('blogpost3')">查看相关日志</a></p>
+            <img src="test.png" onclick="openModal('modal3')">
+        </div>
+        <!-- 项目 4 -->
+        <div class="project-item">
+            <h3>项目标题 4</h3>
+            <p><a href="#blogpost4" onclick="showSection('blogpost4')">查看相关日志</a></p>
+            <img src="test.png" onclick="openModal('modal4')">
+        </div>
     </div>
 
 
@@ -506,6 +518,30 @@
         </iframe>
     </div>
 </div>
+<div id="modal3" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal3')">&times;</span>
+        <h3>项目标题 3</h3>
+        <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+        </iframe>
+    </div>
+</div>
+<div id="modal4" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal('modal4')">&times;</span>
+        <h3>项目标题 4</h3>
+        <iframe 
+            src="https://player.bilibili.com/player.html?bvid=BV1M441147x6&autoplay=0" 
+            scrolling="no" 
+            frameborder="0" 
+            allowfullscreen="true">
+        </iframe>
+    </div>
+</div>
 
      
 
@@ -526,6 +562,18 @@
             <p>这是日志 2 的简介内容，点击查看详情。</p>
         </div>
 
+        <div class="blog-item" onclick="showSection('blogpost3')">
+            <img src="test.png">
+            <h3>日志标题 3</h3>
+            <p>这是日志 3 的简介内容，点击查看详情。</p>
+        </div>
+
+        <div class="blog-item" onclick="showSection('blogpost4')">
+            <img src="test.png">
+            <h3>日志标题 4</h3>
+            <p>这是日志 4 的简介内容，点击查看详情。</p>
+        </div>
+
     </div>
 </div>
 
@@ -537,6 +585,14 @@
 <div id="blogpost2" class="content">
     <h2>日志标题 2</h2>
     <p>这是日志 2 的详细内容。</p>
+</div>
+<div id="blogpost3" class="content">
+    <h2>日志标题 3</h2>
+    <p>这是日志 3 的详细内容。</p>
+</div>
+<div id="blogpost4" class="content">
+    <h2>日志标题 4</h2>
+    <p>这是日志 4 的详细内容。</p>
 </div>
 
 
