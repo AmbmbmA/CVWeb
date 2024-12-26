@@ -225,7 +225,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            font-size: 24px;
+            font-size: 34px;
             cursor: pointer;
             color: #333;
             transition: color 0.3s ease;
@@ -898,6 +898,15 @@
         });
     }
 
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") { // 检测是否按下 ESC 键
+            const openModal = document.querySelector(".modal[style*='display: flex']");
+            if (openModal) {
+                closeModal(openModal.id);
+            }
+        }
+    });
+    
     function adjustHeaderMargin() {
         const header = document.querySelector(".header-nav");
         const screenWidth = window.innerWidth;
@@ -908,6 +917,7 @@
             header.style.marginRight = "50px";
         }
     }
+
     window.addEventListener("resize", adjustHeaderMargin);
 
 </script>
